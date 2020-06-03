@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Of Day</title>
+</head>
+<body>
+<h1>Picture Of Day</h1>
+<img id="img-of-the-day"/>
+<p id="description"></p>
+<script>
+    let query = "https://api.nasa.gov/planetary/apod?api_key=b4ylRNBXmpZZlYyALI6DAXM0PrJt0ydh31Q72dxg";
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function() {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+        }
+    };
+    request.send();
+</script>
+
+<h3>List all comment</h3>
+<table>
+    <thead>
+        <th>FeedBackID</th>
+        <th>Star</th>
+        <th>Author</th>
+        <th>Comment</th>
+        <th>Date</th>
+        <th>Liked</th>
+    </thead>
+    <tbody>
+        <tr th:each="c: ${feedbacks}">
+            <td th:text="${c.getId()}"></td>
+            <td th:text="${c.getStar()}"></td>
+            <td th:text="${c.getAuthor()}"></td>
+            <td th:text="${c.getComment()}"></td>
+            <td th:text="${c.getTime()}"></td>
+            <td th:text="${c.getNumberOfLike()}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
