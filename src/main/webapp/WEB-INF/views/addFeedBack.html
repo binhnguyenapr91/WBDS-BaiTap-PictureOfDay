@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add feed back</h1>
+<form action="" th:action="@{/addFeedBack}" th:object="${feedback}" method="post">
+    <table>
+        <tr>
+            <td><label for="selectStar">Star:</label></td>
+            <td>
+                <select name="selectStart" id="selectStar" th:field="*{star}">
+                    <option th:value="1">1 stars</option>
+                    <option th:value="2">2 stars</option>
+                    <option th:value="3">3 stars</option>
+                    <option th:value="4">4 stars</option>
+                    <option th:value="5">5 stars</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="author">Author:</label></td>
+            <td><input type="text" size="20" id="author" name="author" th:field="*{author}"/></td>
+        </tr>
+        <tr>
+            <td><label for="">Comment:</label></td>
+            <td><textarea name="comment" id="" cols="30" rows="10" th:field="*{comment}"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Comment"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

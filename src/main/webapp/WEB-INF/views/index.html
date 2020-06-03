@@ -21,26 +21,8 @@
     request.send();
 </script>
 
-<h3>List all comment</h3>
-<table>
-    <thead>
-        <th>FeedBackID</th>
-        <th>Star</th>
-        <th>Author</th>
-        <th>Comment</th>
-        <th>Date</th>
-        <th>Liked</th>
-    </thead>
-    <tbody>
-        <tr th:each="c: ${feedbacks}">
-            <td th:text="${c.getId()}"></td>
-            <td th:text="${c.getStar()}"></td>
-            <td th:text="${c.getAuthor()}"></td>
-            <td th:text="${c.getComment()}"></td>
-            <td th:text="${c.getTime()}"></td>
-            <td th:text="${c.getNumberOfLike()}"></td>
-        </tr>
-    </tbody>
-</table>
+
+<a href="/addFeedBack">Go to Feedback</a>
+<a href="/feedbackListing">Go to Feedback Manager</a>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>List all comment</h3>
+<table>
+    <thead>
+    <th>FeedBackID</th>
+    <th>Star</th>
+    <th>Author</th>
+    <th>Comment</th>
+    <th>Date</th>
+    <th colspan="2">Liked</th>
+
+    </thead>
+    <tbody>
+    <tr th:each="c: ${feedbacks}">
+        <td th:text="${c.getId()}"></td>
+        <td th:text="${c.getStar()}"></td>
+        <td th:text="${c.getAuthor()}"></td>
+        <td th:text="${c.getComment()}"></td>
+        <td th:text="${c.getTime()}"></td>
+        <td th:text="${c.getNumberOfLike()}"></td>
+        <td><a th:href="@{/like/{id}(id=${c.getId()})}">Like it</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
